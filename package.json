@@ -1,0 +1,91 @@
+{
+  "name": "@comandeer/doco",
+  "version": "0.0.0",
+  "description": "Super simple documentation generator",
+  "main": "dist/doco.js",
+  "module": "dist/doco.es2015.js",
+  "bin": "bin/doco",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "rlb",
+    "lint": "eslint src/**/*.js tests/*.js",
+    "pretest": "npm run lint",
+    "test": "nyc mocha tests/*.js --timeout 15000 --require babel-register",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "commitmsg": "is-ci && exit 0 || commitplease .git/COMMIT_EDITMSG",
+    "version": "npm test && npm run build && git add -f dist/",
+    "postversion": "git rm -r --cached dist/ && git commit -m \"chore(dist): clean after release [ci skip]\" && git push origin && git push origin --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Comandeer/doco.git"
+  },
+  "keywords": [
+    "doco",
+    "jsdoc",
+    "esdoc",
+    "docs",
+    "documentation"
+  ],
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "author": "Comandeer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Comandeer/doco/issues"
+  },
+  "homepage": "https://github.com/Comandeer/doco#readme",
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "dist/**/*.js",
+      "tests/**/*.js"
+    ]
+  },
+  "commitplease": {
+    "nohook": true,
+    "style": "angular",
+    "types": [
+      "feat",
+      "fix",
+      "docs",
+      "style",
+      "refactor",
+      "perf",
+      "test",
+      "build",
+      "ci",
+      "chore",
+      "revert"
+    ],
+    "scope": "\\S+.*"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@comandeer/is-ci": "^1.0.0",
+    "@comandeer/rollup-lib-bundler": "^0.4.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "codecov": "^3.0.0",
+    "commitplease": "^3.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^4.18.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "esdoc": "^1.0.4",
+    "esdoc-standard-plugin": "^1.0.0"
+  }
+}

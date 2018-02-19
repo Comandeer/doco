@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+const doco = require( '../dist/doco.js' ).default;
+
+doco();
