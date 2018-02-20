@@ -1,0 +1,22 @@
+{
+  "name": "package1",
+  "version": "1.0.0",
+  "description": "Fixture",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Comandeer/doco.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Comandeer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Comandeer/doco/issues"
+  },
+  "homepage": "https://github.com/Comandeer/doco#readme"
+}
