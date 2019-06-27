@@ -70,7 +70,7 @@
     }
   },
   "devDependencies": {
-    "@comandeer/is-ci": "^1.0.0",
+    "@comandeer/is-ci": "^2.0.0",
     "@comandeer/rollup-lib-bundler": "^0.8.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-register": "^6.26.0",
